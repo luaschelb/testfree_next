@@ -1,0 +1,29 @@
+.BasicForm {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border: solid 1px #222;
+    padding: 16px;
+    gap: 4px;
+    min-height: 320px;
+    min-width: 320px;
+}
+
+.BasicForm > :last-child{
+    margin-top: 4px;
+}
+
+.InputLabel {
+    font-weight: bold;
+}
+
+
+.BasicFormInput {
+    width: 400px;
+}
+
+
+.BasicFormDescription {
+    width: 400px;
+    height: 150px;
+}
