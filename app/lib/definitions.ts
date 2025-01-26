@@ -1,4 +1,4 @@
-import TestExecutionStatusEnum from "./enums/TestExecutionStatusEnum";
+import { TestExecutionStatusEnum } from "./enums";
 
 export class Build {
     id: number;
