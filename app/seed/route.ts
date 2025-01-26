@@ -1,5 +1,5 @@
 import { db } from '@vercel/postgres';
-import { projects, builds, testScenarios, testCases, testPlans, testPlansTestCases, testExecutionsTestCases, files, users} from '../lib/placeholder-data';
+import { projects, builds, testScenarios, testCases, testPlans, testPlansTestCases, testExecutionsTestCases, files, users, testExecutions} from '../lib/placeholder-data';
 
 const client = await db.connect();
 
@@ -170,13 +170,15 @@ async function seedTestExecutions() {
     );
   `;
 
-  await client.sql`
-    INSERT INTO test_executions (start_date, end_date, test_plan_id, build_id, status, comments)
-    VALUES 
-      ('2024-09-28T00:00:00Z', '2024-09-28T14:00:00Z', 1, 1, 2, 'Primeira execução de testes do plano 1'),
-      ('2024-09-28T00:00:00Z', '2024-09-29T14:00:00Z', 1, 1, 1, 'Execução de testes com observações')
-    ON CONFLICT DO NOTHING;
-  `;
+  await Promise.all(
+    testExecutions.map((testexecution) =>
+      client.sql`
+        INSERT INTO test_executions (start_date, end_date, test_plan_id, build_id, status, comments)
+        VALUES (${testexecution.start_date}, ${testexecution.end_date}, ${testexecution.test_plan_id}, ${testexecution.build_id}, ${testexecution.status}, ${testexecution.comments})
+        ON CONFLICT DO NOTHING;
+      `
+    )
+  );
 }
 
 async function seedTestPlansTestCases() {
@@ -216,15 +218,15 @@ async function seedTestExecutionsTestCases() {
     );
   `;
 
-  await client.sql`
-    INSERT INTO test_executions_test_cases (created_at, comment, passed, skipped, failed, test_execution_id, test_case_id)
-    VALUES 
-      ('2024-09-28T14:01:00Z', 'Senha recuperada com sucesso', true, false, false, 1, 1),
-      ('2024-09-28T14:03:00Z', 'Foi acusado credenciais inválidas com as credenciais válidas Admin@Admin', false, false, true, 1, 2),
-      ('2024-09-28T14:05:00Z', 'Categoria cadastrada corretamente', true, false, false, 1, 3),
-      ('2024-09-28T14:14:00Z', 'Categoria cadastrada corretamente', true, false, false, 2, 3)
-    ON CONFLICT DO NOTHING;
-  `;
+  await Promise.all(
+    testExecutionsTestCases.map((tetc) =>
+      client.sql`
+        INSERT INTO test_executions_test_cases (created_at, comment, passed, skipped, failed, test_execution_id, test_case_id)
+        VALUES (${tetc.created_at}, ${tetc.comment}, ${tetc.passed}, ${tetc.skipped}, ${tetc.failed}, ${tetc.test_execution_id}, ${tetc.test_case_id})
+        ON CONFLICT DO NOTHING;
+      `
+    )
+  );
 }
 
 async function seedFiles() {
@@ -238,14 +240,15 @@ async function seedFiles() {
     );
   `;
 
-  await client.sql`
-    INSERT INTO files (name, path, test_executions_test_cases_id)
-    VALUES 
-      ('screenshot-login-sucesso.png', '/screenshots/img1.png', 3),
-      ('screenshot-login-falha.png', '/screenshots/img2.png', 2),
-      ('screenshot-cadastro-produto.png', '/screenshots/img3.png', 1)
-    ON CONFLICT DO NOTHING;
-  `;
+  await Promise.all(
+    files.map((file) =>
+      client.sql`
+        INSERT INTO files (name, path, test_executions_test_cases_id)
+        VALUES (${file.name}, ${file.path}, ${file.test_executions_test_cases_id})
+        ON CONFLICT DO NOTHING;
+      `
+    )
+  );
 }
 
 async function seedUsers() {
@@ -260,13 +263,15 @@ async function seedUsers() {
     );
   `;
 
-  await client.sql`
-    INSERT INTO users (name, login, email, password, role)
-    VALUES 
-      ('Admin', 'admin', 'admin@loja.com', 'admin123', 'admin'),
-      ('Tester', 'tester', 'tester@loja.com', 'tester123', 'tester')
-    ON CONFLICT DO NOTHING;
-  `;
+  await Promise.all(
+    users.map((user) =>
+      client.sql`
+        INSERT INTO users (name, login, email, password, role)
+        VALUES (${user.name}, ${user.login}, ${user.email}, ${user.password}, ${user.role})
+        ON CONFLICT DO NOTHING;
+      `
+    )
+  );
 }
 
 export async function GET() {
@@ -286,8 +291,8 @@ export async function GET() {
     await client.sql`COMMIT`;
 
     return Response.json({ message: 'Database seeded successfully' });
-  } catch (error : any) {
+  } catch (error) {
     await client.sql`ROLLBACK`;
-    return Response.json({ error: error.message }, { status: 500 });
+    return Response.json({ error }, { status: 500 });
   }
 }
