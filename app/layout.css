@@ -1,0 +1,13 @@
+html {
+    background-color: #0f0f0f;
+    color: white;
+    text-align: center;
+}
+
+a {
+    color: white;
+}
+
+.container {
+    margin-top: 100px;
+}
