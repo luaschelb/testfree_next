@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import DrawerLayout from "./components/drawerLayout";
 
 export const metadata: Metadata = {
   title: "Testfree Next",
@@ -14,7 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {children}
+        <DrawerLayout>
+          {children}
+        </DrawerLayout>
       </body>
     </html>
   );
