@@ -27,7 +27,7 @@ export default function DrawerLayout ({children}: DrawerLayoutProps) {
                 <span className="ml-1 text-xl font-bold">Test Free Next</span>
             </div>
             <div id="Main" className="flex h-[calc(100vh-4rem)]"> 
-                <div id="Drawer" className={`overflow-hidden border-r h-full transition-all ease-in-out duration-300
+                <div id="Drawer" className={`overflow-hidden border-r border-gray-300 h-full transition-all ease-in-out duration-300
                     ${open ? "translate-x-0 w-64" : "-translate-x-full w-0"}`}>
                     <div className="p-4">
                         <h2 className="mb-4 text-lg font-semibold">Navigation</h2>
