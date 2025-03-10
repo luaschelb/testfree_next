@@ -15,9 +15,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <DrawerLayout>
+        {/* <DrawerLayout>
           {children}
-        </DrawerLayout>
+        </DrawerLayout> */}
+        {children}
       </body>
     </html>
   );
