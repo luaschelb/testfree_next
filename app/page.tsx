@@ -1,5 +1,3 @@
-import Link from 'next/link'
-import {fetchBuilds} from "./lib/data"
 import { redirect } from 'next/navigation';
 
 export default async function Home() {

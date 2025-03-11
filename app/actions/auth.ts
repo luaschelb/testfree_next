@@ -39,7 +39,5 @@ export async function signup(state: FormState, formData : FormData) {
         }
     }
 
-    const { name, email, password } = validatedFields.data
-
     console.log(validatedFields.data)
 }

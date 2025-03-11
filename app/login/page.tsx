@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function () {
+export default function LoginForm() {
     return (
         <div className="size-full bg-stone-100 fixed">
             <form className="shadow rounded p-4 w-fit m-auto mt-16 bg-white">
