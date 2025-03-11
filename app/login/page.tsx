@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function () {
     return (
-        <div className='w-fit m-auto mt-[15%]'>
-            <form className="border rounded p-2">
+        <div className="size-full bg-stone-100 fixed">
+            <form className="shadow rounded p-4 w-fit m-auto mt-16 bg-white">
                 <h1 className='text-center font-bold'>Login</h1>
                 <div className='mb-2'>
                 <label className="block" htmlFor="name">Name</label>

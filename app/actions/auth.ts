@@ -38,4 +38,8 @@ export async function signup(state: FormState, formData : FormData) {
         errors: validatedFields.error.flatten().fieldErrors,
         }
     }
+
+    const { name, email, password } = validatedFields.data
+
+    console.log(validatedFields.data)
 }
