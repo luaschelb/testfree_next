@@ -28,9 +28,15 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        <DrawerLayout>
-          {children}
-        </DrawerLayout>
+        {
+          authCookie === undefined ? (
+            children
+          ) : (
+            <DrawerLayout>
+              {children}
+            </DrawerLayout>
+          )
+        }
       </body>
     </html>
   );
