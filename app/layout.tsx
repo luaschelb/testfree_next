@@ -15,23 +15,13 @@ export default async function RootLayout({
 }>) {
   const cookieStore = await cookies()
   const authCookie = cookieStore.get("auth")
-  if (authCookie === undefined) 
-  {
-    return (
-      <html lang="en">
-        <body>
-          {children}
-        </body>
-      </html>
-    );
-  }
   return (
     <html lang="en">
       <body>
         {
-          authCookie === undefined ? (
+          authCookie === undefined ? 
             children
-          ) : (
+          : (
             <DrawerLayout>
               {children}
             </DrawerLayout>
