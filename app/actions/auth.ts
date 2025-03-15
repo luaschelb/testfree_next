@@ -2,6 +2,7 @@
  
 import { z } from 'zod'
 import { cookies } from 'next/headers'
+import { redirect } from 'next/navigation'
 
 
 const signUpFormSchema = z.object({
@@ -9,7 +10,7 @@ const signUpFormSchema = z.object({
     email: z.string().email({message: "Invalid email"}),
     password: z
         .string()
-        .min(8, {message: "Be at least 6 characters long"})
+        .min(6, {message: "Be at least 6 characters long"})
         .regex(/[a-zA-Z]/, { message: 'Contain at least one letter.' })
         .regex(/[0-9]/, { message: 'Contain at least one number.' })
         .regex(/[^a-zA-Z0-9]/, {
@@ -70,4 +71,12 @@ export async function login(state: FormState, formData: FormData) {
     name: "auth",
     value: 'true'
   })
+
+  redirect("/")
+}
+
+export async function signout() {
+  const cookieStore = await cookies()
+  cookieStore.delete("auth")
+  redirect("/login")
 }
