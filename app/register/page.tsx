@@ -36,10 +36,10 @@ export default function SignupForm() {
             </div>
           )}
         </div>
-        <div className='flex w-full items-center justify-between'>
+        <div className='mt-4 flex w-full items-center justify-between'>
           <button type="submit" 
           disabled={pending}
-            className="hover:cursor-pointer py-1 px-2 border rounded bg-teal-100 hover:bg-teal-200">Register</button>
+            className="hover:cursor-pointer py-1 px-2 rounded bg-blue-500 hover:bg-blue-600 text-white border-blue-600/50 border">Register</button>
           <Link href="/login" className='text-blue-500 w-fit'>Return to login</Link>
         </div>
       </form>
