@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
 import DrawerLayout from "./components/drawerLayout";
 
 export const metadata: Metadata = {

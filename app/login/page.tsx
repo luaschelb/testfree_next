@@ -5,9 +5,7 @@ import { useActionState } from "react";
 import { login } from "../actions/auth";
 
 export default function LoginForm() {
-
-    const [state, action, pending] = useActionState(login, undefined)
-
+    const [state, action] = useActionState(login, undefined)
     return (
         <div className="size-full bg-stone-100 fixed">
             <form className="shadow rounded p-4 w-fit m-auto mt-16 bg-white" action={action}>
