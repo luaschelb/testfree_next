@@ -19,7 +19,7 @@ export default function DrawerLayout ({children}: DrawerLayoutProps) {
         <div>
             <div id="Header" className=" bg-blue-600 text-white drop-shadow-lg flex items-center h-16 w-full">
                 <button 
-                    className="hover:bg-blue-100 cursor-pointer ml-4 rounded-3xl p-1.5 transition-colors"
+                    className="hover:bg-blue-700/80 cursor-pointer ml-4 rounded-3xl p-2 transition-colors"
                     onClick={toggleDrawer}
                     >
                     <BarsIcon />
