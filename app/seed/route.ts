@@ -7,9 +7,6 @@ async function seedProjects() {
   await client.sql`
     CREATE TABLE IF NOT EXISTS projects (
       id SERIAL PRIMARY KEY,
-      testcase_counter INT DEFAULT 1,
-      testscenario_counter INT DEFAULT 1,
-      testexecutions_counter INT DEFAULT 1,
       name VARCHAR(255),
       description TEXT,
       active BOOLEAN
@@ -19,8 +16,8 @@ async function seedProjects() {
   const insertedProjects = await Promise.all(
     projects.map(
       (project) => client.sql`
-        INSERT INTO projects (testcase_counter, testscenario_counter, testexecutions_counter, name, description, active)
-        VALUES (${project.testcase_counter}, ${project.testscenario_counter}, ${project.testexecutions_counter}, ${project.name}, ${project.description}, ${project.active})
+        INSERT INTO projects (name, description, active)
+        VALUES (${project.name}, ${project.description}, ${project.active})
         ON CONFLICT DO NOTHING;
       `
     )

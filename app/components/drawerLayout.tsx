@@ -3,6 +3,7 @@ import BarsIcon from "@/resources/icons/BarsIcon";
 import LadyBeetleIcon from "@/resources/icons/LadyBeetleIcon";
 import { useState } from "react";
 import { signout } from "../actions/auth";
+import Link from "next/link";
 
 interface DrawerLayoutProps {
     children: React.ReactNode
@@ -36,10 +37,10 @@ export default function DrawerLayout ({children}: DrawerLayoutProps) {
                     <div className="p-4">
                         <h2 className="mb-4 text-lg font-semibold">Navigation</h2>
                         <nav className="space-y-2">
-                        <a href="#" className="block p-2 hover:bg-gray-100 rounded-lg">Home</a>
-                        <a href="#" className="block p-2 hover:bg-gray-100 rounded-lg">Dashboard</a>
-                        <a href="#" className="block p-2 hover:bg-gray-100 rounded-lg">Settings</a>
-                        <a href="#" className="block p-2 hover:bg-gray-100 rounded-lg">Profile</a>
+                        <Link href='/' className="block p-2 hover:bg-gray-100 rounded-lg hover:cursor-pointer">Home</Link>
+                        <Link href='/projects' className="block p-2 hover:bg-gray-100 rounded-lg hover:cursor-pointer">Projects</Link>
+                        <Link href='/' className="block p-2 hover:bg-gray-100 rounded-lg hover:cursor-pointer">Settings</Link>
+                        <Link href='/' className="block p-2 hover:bg-gray-100 rounded-lg hover:cursor-pointer">Profile</Link>
                         </nav>
                     </div>      
                 </div>

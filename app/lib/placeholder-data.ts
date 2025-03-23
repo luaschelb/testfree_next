@@ -1,8 +1,5 @@
 const projects = [
   {
-    testcase_counter: 5,
-    testscenario_counter: 2,
-    testexecutions_counter: 3,
     name: 'GESCAD - Gestão de Produtos',
     description: 'Plataforma para gerenciar produtos e vendas em uma loja virtual',
     active: 1,
