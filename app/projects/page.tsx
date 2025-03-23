@@ -18,6 +18,7 @@ export default async function Page() {
               <th className="p-3">Name</th>
               <th className="p-3">Description</th>
               <th className="p-3">Active</th>
+              <th className="p-3">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -35,6 +36,9 @@ export default async function Page() {
                   ) : (
                     <span className="text-red-600 font-semibold">No</span>
                   )}
+                </td>
+                <td>
+                  ➕
                 </td>
               </tr>
             ))}
