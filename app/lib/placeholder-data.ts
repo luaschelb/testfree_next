@@ -1,16 +1,16 @@
 const projects = [
   {
-    name: 'GESCAD - Gestão de Produtos',
-    description: 'Plataforma para gerenciar produtos e vendas em uma loja virtual',
+    name: 'GESCAD - Product Management',
+    description: 'Platform for managing products and sales in an online store',
     active: 1,
   },
 ];
 
 const builds = [
   {
-    title: 'Versão 1.0-DEV',
+    title: 'Version 1.0-DEV',
     version: '1.0',
-    description: 'Primeira versão estável do sistema',
+    description: 'First stable version of the system',
     active: 1,
     project_id: 1,
   },
@@ -18,16 +18,16 @@ const builds = [
 
 const testScenarios = [
   {
-    name: 'Login e Autenticação',
+    name: 'Login and Authentication',
     count: 1,
-    description: 'Testes relacionados ao processo de login e autenticação do sistema',
+    description: 'Tests related to the login and authentication process of the system',
     order: 1,
     test_project_id: 1,
   },
   {
-    name: 'Gerenciamento de Produtos',
+    name: 'Product Management',
     count: 1,
-    description: 'Testes de inserção, edição e exclusão de produtos',
+    description: 'Tests for adding, editing, and deleting products',
     order: 2,
     test_project_id: 1,
   },
@@ -35,31 +35,31 @@ const testScenarios = [
 
 const testCases = [
   {
-    name: 'Login com credenciais válidas',
+    name: 'Login with valid credentials',
     order: 1,
     count: 1,
-    description: 'Login realizado com credenciais válidas',
-    steps: `1. Acessar a página de login\n2. Inserir e-mail e senha válidos\n3. Clicar em Entrar\n4. Verificar se o login foi bem-sucedido`,
+    description: 'Login performed with valid credentials',
+    steps: `1. Access the login page\n2. Enter a valid email and password\n3. Click on Login\n4. Verify if the login was successful`,
     enabled: 1,
     can_edit: 1,
     test_scenario_id: 1,
   },
   {
-    name: 'Login com credenciais inválidas',
+    name: 'Login with invalid credentials',
     order: 2,
     count: 1,
-    description: 'Tentativa de login com senha incorreta',
-    steps: `1. Acessar a página de login\n2. Inserir e-mail válido e senha inválida\n3. Verificar se a mensagem de erro é exibida`,
+    description: 'Attempt to log in with an incorrect password',
+    steps: `1. Access the login page\n2. Enter a valid email and an invalid password\n3. Verify if the error message is displayed`,
     enabled: 1,
     can_edit: 1,
     test_scenario_id: 1,
   },
   {
-    name: 'Cadastro de produto válido',
+    name: 'Valid product registration',
     order: 1,
     count: 1,
-    description: 'Cadastro de um novo produto com todos os dados obrigatórios',
-    steps: `1. Acessar a página de produtos\n2. Clicar em "Adicionar Produto"\n3. Preencher os dados obrigatórios\n4. Clicar em "Salvar"\n5. Verificar se o produto foi adicionado`,
+    description: 'Registering a new product with all required fields',
+    steps: `1. Access the products page\n2. Click on "Add Product"\n3. Fill in the required fields\n4. Click on "Save"\n5. Verify if the product was added`,
     enabled: 1,
     can_edit: 1,
     test_scenario_id: 2,
@@ -68,8 +68,8 @@ const testCases = [
 
 const testPlans = [
   {
-    name: 'Plano de Testes da Versão 1.0',
-    description: 'Plano de testes para a versão 1.0 do sistema',
+    name: 'Test Plan for Version 1.0',
+    description: 'Test plan for system version 1.0',
     active: 1,
     project_id: 1,
   },
@@ -82,7 +82,7 @@ const testExecutions = [
     test_plan_id: 1,
     build_id: 1,
     status: 2,
-    comments: 'Primeira execução de testes do plano 1',
+    comments: 'First test execution for plan 1',
   },
 ];
 
@@ -94,7 +94,7 @@ const testPlansTestCases = [
 const testExecutionsTestCases = [
   {
     created_at: '2024-09-28 14:01',
-    comment: 'Senha recuperada com sucesso',
+    comment: 'Password successfully recovered',
     passed: 1,
     skipped: 0,
     failed: 0,
@@ -105,9 +105,9 @@ const testExecutionsTestCases = [
 
 const files = [
   {
-    name: 'screenshot-login-sucesso.png',
+    name: 'screenshot-login-success.png',
     path: '/screenshots/img1.png',
-    test_executions_test_cases_id: 3,
+    test_executions_test_cases_id: 1,
   },
 ];
 
@@ -115,14 +115,14 @@ const users = [
   {
     name: 'Admin',
     login: 'admin',
-    email: 'admin@loja.com',
+    email: 'admin@store.com',
     password: 'admin123',
     role: 'admin',
   },
   {
     name: 'Tester',
     login: 'tester',
-    email: 'tester@loja.com',
+    email: 'tester@store.com',
     password: 'tester123',
     role: 'tester',
   },
@@ -139,4 +139,4 @@ export {
   testExecutionsTestCases,
   files,
   users
-}
+};
