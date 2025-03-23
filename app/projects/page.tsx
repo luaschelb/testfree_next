@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { fetchProjects } from "../lib/data";
+import { Pencil, Trash } from "lucide-react";
 
 export default async function Page() {
   const projects = await fetchProjects();
@@ -37,8 +38,9 @@ export default async function Page() {
                     <span className="text-red-600 font-semibold">No</span>
                   )}
                 </td>
-                <td>
-                  ➕
+                <td className="flex align-middle h-full"  >
+                  <Pencil className=" " color="#3e9392" />
+                  <Trash className="" color="#3e9392" />
                 </td>
               </tr>
             ))}
