@@ -49,23 +49,23 @@ export async function login(state: FormState, formData: FormData) {
   const cookieStore = await cookies()
   console.log(formData)
 
-  // const authCookie = cookieStore.get("auth")
-  // if (authCookie) 
-  // {
-  //   return undefined;
-  // }
+  const authCookie = cookieStore.get("auth")
+  if (authCookie) 
+  {
+    return undefined;
+  }
 
-  // const validatedFields = signUpFormSchema.safeParse({
-  //     name: formData.get("name"),
-  //     email: formData.get("email"),
-  //     password: formData.get("password"),
-  // });
+  const validatedFields = signUpFormSchema.safeParse({
+      name: formData.get("name"),
+      email: formData.get("email"),
+      password: formData.get("password"),
+  });
 
-  // if (!validatedFields.success) {
-  //     return {
-  //         errors: validatedFields.error.flatten().fieldErrors,
-  //     };
-  // }
+  if (!validatedFields.success) {
+      return {
+          errors: validatedFields.error.flatten().fieldErrors,
+      };
+  }
 
   cookieStore.set({
     name: "auth",
