@@ -33,7 +33,7 @@ export default function DrawerLayout ({children}: DrawerLayoutProps) {
             </div>
             <div id="Main" className="flex h-[calc(100vh-4rem)]"> 
                 <div id="Drawer" className={`overflow-hidden border-r border-gray-300 h-full transition-all ease-in-out duration-300
-                    ${open ? "translate-x-0 w-64" : "-translate-x-full w-0"}`}>
+                    ${open ? "translate-x-0 w-40" : "-translate-x-full w-0"}`}>
                     <div className="p-4">
                         <h2 className="mb-4 text-lg font-semibold">Navigation</h2>
                         <nav className="space-y-2">
@@ -44,7 +44,7 @@ export default function DrawerLayout ({children}: DrawerLayoutProps) {
                         </nav>
                     </div>      
                 </div>
-                <div id="Content" className="p-4">
+                <div id="Content" className="p-4 w-[calc(100vw-10rem)]">
                     {children}
                 </div>
             </div>
