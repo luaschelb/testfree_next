@@ -3,6 +3,8 @@
 import { z } from 'zod'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
+import { sql } from '@vercel/postgres'
+import { User } from '../lib/definitions'
 
 
 const signUpFormSchema = z.object({
@@ -47,7 +49,6 @@ export async function signup(state: FormState, formData : FormData) {
 
 export async function login(state: FormState, formData: FormData) {
   const cookieStore = await cookies()
-  console.log(formData)
 
   const authCookie = cookieStore.get("auth")
   if (authCookie) 
@@ -67,10 +68,23 @@ export async function login(state: FormState, formData: FormData) {
       };
   }
 
-  cookieStore.set({
-    name: "auth",
-    value: 'true'
-  })
+  console.log(validatedFields.data)
+
+  try{
+    const queryUser = await sql<User>`select * from users where users.email = ${validatedFields.data.email} and users.password = ${validatedFields.data.password}`
+    console.log(queryUser.rows)
+    if(queryUser.rows?.length > 0)
+    {
+      cookieStore.set({
+        name: "auth",
+        value: 'true'
+      })
+    }
+  }
+  catch (error) {
+    console.error(error)
+    throw new Error("Failed to find user with credentials")
+  }
 
   redirect("/")
 }
