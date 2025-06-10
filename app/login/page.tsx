@@ -25,6 +25,7 @@ export default function LoginForm() {
                     <input id="password" name="password" type="password" 
                     className="py-2 px-3 shadow border rounded"/>
                     {state?.errors?.password && <p className='text-sm text-red-400'>Password is required</p>}
+                    {state?.message && <p className='text-sm text-red-400 pt-1'>{state?.message}</p>}
                 </div>
                 <button type="submit" 
                 className="hover:cursor-pointer py-1 px-2 rounded bg-blue-500 hover:bg-blue-600 text-white border-blue-600/50 border">Sign In</button>

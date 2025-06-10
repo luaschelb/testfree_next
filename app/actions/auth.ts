@@ -80,10 +80,12 @@ export async function login(state: FormState, formData: FormData) {
         value: 'true'
       })
     }
+    else
+      return { message: "Incorrect credentials"}
   }
   catch (error) {
     console.error(error)
-    throw new Error("Failed to find user with credentials")
+    throw new Error("Database Error")
   }
 
   redirect("/")
