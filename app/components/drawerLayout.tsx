@@ -2,7 +2,7 @@
 import BarsIcon from "@/resources/icons/BarsIcon";
 import LadyBeetleIcon from "@/resources/icons/LadyBeetleIcon";
 import { useState } from "react";
-import { signout } from "../actions/auth";
+import { signout } from "../actions/signOut";
 import Link from "next/link";
 
 interface DrawerLayoutProps {

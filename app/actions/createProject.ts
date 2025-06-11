@@ -1,7 +1,7 @@
 'use server'
 
 import { z } from "zod"
-import { FormState } from "./auth"
+import { FormState } from "./signIn"
 
 const projectSchema = z.object({
     name: z.string().regex(/^[A-Za-z]+ [A-Za-z]+$/, { message: "Name must be in the format 'First Last'" }),
