@@ -9,9 +9,12 @@ export function middleware(request: NextRequest) {
   {
     return NextResponse.redirect(new URL('/login', request.url))
   }
+  if (request.nextUrl.pathname === '/login' && authCookie) {
+    return NextResponse.redirect(new URL('/', request.url)) // redireciona para home
+  }
   return NextResponse.next()
 }
 
 export const config = {
-  matcher: ['/', '/builds'],
+  matcher: ['/', '/builds', "/projects"],
 }
