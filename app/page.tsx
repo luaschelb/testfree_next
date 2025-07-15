@@ -7,25 +7,25 @@ export default async function Home() {
       <h1 className="text-2xl font-bold">Home Page</h1>
       <div>
         <h2 className="text-2xl font-bold mb-2">Users</h2>
-        <table className="min-w-full border border-gray-300 rounded-lg">
-          <thead className="bg-gray-100 text-left">
-            <tr className="border-b border-black/40">
-              <th className="p-3">Id</th>
-              <th className="p-3">Name</th>
-              <th className="p-3">Email</th>
-              <th className="p-3">Role</th>
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
             </tr>
           </thead>
           <tbody>
             {users?.map((user, index) => (
               <tr
                 key={user.id}
-                className={`${index % 2 === 0 ? "bg-gray-50" : "bg-white"}`}
+                className={index % 2 === 0 ? "table-row-alt" : ""}
               >
-                <td className="p-3">{user.id}</td>
-                <td className="p-3">{user.name}</td>
-                <td className="p-3">{user.email}</td>
-                <td className="p-3">{user.role}</td>
+                <td>{user.id}</td>
+                <td>{user.name}</td>
+                <td>{user.email}</td>
+                <td>{user.role}</td>
               </tr>
             ))}
           </tbody>

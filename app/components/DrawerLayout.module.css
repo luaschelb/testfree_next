@@ -1,0 +1,96 @@
+.header {
+  background-color: #2563eb; /* bg-blue-600 */
+  color: white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  height: 4rem;
+  width: 100%;
+}
+
+.menuButton {
+  background-color: transparent;
+  cursor: pointer;
+  margin-left: 1rem;
+  padding: 0.5rem;
+  border-radius: 9999px;
+  transition: background-color 0.2s ease;
+}
+
+.menuButton:hover {
+  background-color: rgba(30, 64, 175, 0.8); /* hover:bg-blue-700/80 */
+}
+
+.title {
+  margin-left: 0.25rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.logoutButton {
+  margin-left: auto;
+  margin-right: 3rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #6b7280; /* bg-gray-500 */
+  border: 1px solid rgba(37, 99, 235, 0.5);
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.logoutButton:hover {
+  background-color: #4b5563; /* hover:bg-gray-600 */
+}
+
+.main {
+  display: flex;
+  height: calc(100vh - 4rem);
+}
+
+.drawer {
+  overflow: hidden;
+  border-right: 1px solid #d1d5db; /* border-gray-300 */
+  height: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+.drawerOpen {
+  transform: translateX(0);
+  width: 10rem;
+}
+
+.drawerClosed {
+  transform: translateX(-100%);
+  width: 0;
+}
+
+.drawerInner {
+  padding: 1rem;
+}
+
+.drawerTitle {
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.navItem {
+  display: block;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.2s ease;
+}
+
+.navItem:hover {
+  background-color: #f3f4f6; /* hover:bg-gray-100 */
+}
+
+.content {
+  padding: 1rem;
+  width: calc(100vw - 10rem);
+}
