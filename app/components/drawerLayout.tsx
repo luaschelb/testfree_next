@@ -22,9 +22,11 @@ export default function DrawerLayout ({children}: DrawerLayoutProps) {
        <div>
             <div id="Header" className={styles.header}>
                 <button className={styles.menuButton} onClick={toggleDrawer}>
-                <BarsIcon />
+                    <BarsIcon />
                 </button>
-                <span className="ml-1"><LadyBeetleIcon /></span>
+                <span>
+                    <LadyBeetleIcon />
+                </span>
                 <span className={styles.title}>Test Free Next</span>
                 <button onClick={signout} className={styles.logoutButton}>
                 Logout
@@ -36,18 +38,18 @@ export default function DrawerLayout ({children}: DrawerLayoutProps) {
                 id="Drawer"
                 className={`${styles.drawer} ${open ? styles.drawerOpen : styles.drawerClosed}`}
                 >
-                <div className={styles.drawerInner}>
-                    <h2 className={styles.drawerTitle}>Navigation</h2>
-                    <nav className="space-y-2">
-                    <Link href="/" className={styles.navItem}>Home</Link>
-                    <Link href="/projects" className={styles.navItem}>Projects</Link>
-                    <Link href="/" className={styles.navItem}>Settings</Link>
-                    <Link href="/" className={styles.navItem}>Profile</Link>
-                    </nav>
+                    <div className={styles.drawerInner}>
+                        <h2 className={styles.drawerTitle}>Navigation</h2>
+                        <nav>
+                        <Link href="/" className={styles.navItem}>Home</Link>
+                        <Link href="/projects" className={styles.navItem}>Projects</Link>
+                        <Link href="/" className={styles.navItem}>Settings</Link>
+                        <Link href="/" className={styles.navItem}>Profile</Link>
+                        </nav>
+                    </div>
                 </div>
-                </div>
-                <div id="Content" className={styles.content}>
-                {children}
+                    <div id="Content" className={styles.content}>
+                    {children}
                 </div>
             </div>
         </div>
